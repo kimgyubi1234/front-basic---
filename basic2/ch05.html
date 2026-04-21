@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .box {
+                background-color: #dbdbdb;
+            }
+            .b1 {
+                width: 100px;
+                height: 100px;
+                border-radius: 10px;
+            }
+            .b2 {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+            }
+            .b3 {
+                width: 200px;
+                height: 100px;
+                border-radius: 50px;
+                /* 캡슐 형태를 만들때는 넓이랑 높이 중에서 짧은 것의 절반의 값을 border-radius에 입력해야함 */
+            }
+            .b4 {
+                width: 200px;
+                height: 100px;
+                border-top-left-radius: 50px;
+                border-bottom-right-radius: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box b1"></div>
+        <div class="box b2"></div>
+        <div class="box b3"></div>
+        <div class="box b4"></div>
+    </body>
+</html>

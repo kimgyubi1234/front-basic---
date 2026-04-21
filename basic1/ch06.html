@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- enctype(컨텐츠타입)="multipart/form-data" => 주소/파일을 보내기 위한 작업 -->
+<body>
+    <form action="http://localhost:8080/servlet_study_war_exploded/api/html/form" method="post" enctype="multipart/form-data">
+        <!-- 여기서 name은 key값이다 => 주소창 ? 뒤에 키 밸류로 나온다 -->
+        <div>
+            <label for="username">아이디</label>
+            <input type="text" id="username" name="username" autofocus placeholder="사용자 이름을 입력하세요" required>
+            <!-- autofocus는 동시에 커서 깜빡이 불가. 하나만 가능함 -->
+        </div>
+        <div>
+            <label for="password">비밀번호</label>
+            <input type="password" id="password" name="password" value="1234" required>
+        </div>
+        <div>
+            <label for="student1">"학생"</label>
+            <input type="checkbox" id="student1" name="job1" value="학생1">
+            <label for="teacher1">"선생님"</label>
+            <input type="checkbox" id="teacher1" name="job1" value="선생님1" disabled>
+            <!-- disabled는 비활성화 시킨다 -->
+            <label for="developer1">"개발자"</label>
+            <input type="checkbox" id="developer1" name="job1" value="계발자1">
+        </div>
+        <div>
+            <label for="student2">"학생"</label>
+            <input type="radio" id="student2" name="job2" value="학생2">
+            <label for="teacher2">"선생님"</label>
+            <input type="radio" id="teache2r" name="job2" value="선생님2">
+            <label for="developer2">"개발자"</label>
+            <input type="radio" id="developer" name="job2" value="계발자2">
+            <!-- input은 닫지 않는다 -->
+        </div>
+        <div>
+            <label for="profileFile">첨부파일</label>
+            <input type="file" name="profileFile" id="profileFile">
+        </div>
+        <div>
+            <textarea name="" id=""></textarea>
+            <!-- textarea는 닫는다. -->
+        </div>
+        <div>
+            <select name="" id="">
+                <optgroup label="선택목록1">
+                    <option value="">선택1</option>
+                    <option value="">선택2</option>
+                    <option value="">선택3</option>
+                </optgroup>
+                <optgroup label="선택목록2">
+                    <option value="">선택4</option>
+                    <option value="">선택5</option>
+                    <option value="">선택6</option>
+                </optgroup>
+                <optgroup label="선택목록3">
+                    <option value="">선택7</option>
+                    <option value="">선택8</option>
+                    <option value="">선택9</option>
+                </optgroup>
+            </select>
+        </div>
+        <div>
+            <input type="text" list="nameList">
+            <datalist id="nameList">
+                <option value="김준일">김준일</option>
+                <option value="이준일">이준일</option>
+                <option value="박준일">박준일</option>
+                <option value="김준이">김준이</option>
+            </datalist>
+        </div>
+        <!-- submit 동작이 먼저 일어나서 동시에 작성시 button으로 설정할것, type 설정 안하면 submit이 디폴트가 됨 -->
+        <button type="submit">전송</button>
+        <button type="button" disabled>확인</button>
+        <button type="button">열기</button>
+    </form>
+</body>
+</html>

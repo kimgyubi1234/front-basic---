@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .p-box {
+                position: relative;
+                /* relative는 원래 자신의 위치에서 이동한다 */
+                /* position은 이동방향의 기준이 됨 */
+                z-index: -1;
+                top: 100;
+                width: 500px;
+                height: 500px;
+                background-color: yellow;
+            }
+            .p-box2 {
+                position: static;
+                /* static은 이동불가 */
+                width: 500px;
+                height: 500px;
+                background-color: green;
+            }
+            .c-box1 {
+                width: 200px;
+                height: 100px;
+                background-color: brown;
+            }
+            .c-box2 {
+                position: absolute;
+                /* absolute는 부모의 위치를 기준으로 이동한다 */
+                top: 100px;
+                /* 위에서 100px을 이동하라 */
+                right: 100px;
+                /* 오른쪽으로부터 100px을 이동시켜라 */
+                width: 200px;
+                height: 100px;
+                background-color: purple;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="p-box">
+            <div class="c-box1">
+                
+            </div>
+            <div class="c-box2">
+                
+            </div>
+        </div>
+        <div class="p-box2">
+            <div class="c-box1">
+                
+            </div>
+            <div class="c-box2">
+                
+            </div>
+        </div>
+    </body>
+</html>
