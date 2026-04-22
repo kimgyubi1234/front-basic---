@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=div
+        , initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            a {
+                text-decoration: none;
+            } /* 이건 많이 씀 */
+            
+
+            a:link {
+                color: #003f8355;
+            }
+
+            a:visited {
+                color: #ff009d;
+            }
+            /* 위에 것들은 잘 안 씀 */
+
+            .btn {
+                display: inline-block;
+                border: 1px solid #888;
+                /* transparent는 부모의 색깔을 따라간다 / 투명해진다. */
+                border-radius: 2.5px;
+                padding: 2px 7px;
+                background-color: #eee;
+                font-size: 13.33333px;
+                color: black;
+
+                cursor: default;
+            }
+            /* 캐스캐이딩으로 위에서 적용되고 아래로 내려옴 */
+            .btn:hover {
+                border: 1px solid #555;
+                background-color: #ddd;
+            }
+            .btn:active {
+                border: 1px solid #aaa;
+                background-color: #f0f0f0;
+            }
+            .btn:disabled {
+                border: #ddd;
+                background-color: #be0000;
+            }
+        </style>
+    </head>
+    <body>
+        <a class="btn" href="http://naver.com">확인</a>
+        <button class="btn" disabled>확인</button>
+        <!-- disabled은 form 태크들에게만 줌 -->
+        <!-- :active, :hover -->
+        <div class="btn">확인</div>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .parent {
+                position: relative;
+                width: 400px;
+                height: 300px;
+                border: 2px solid black;
+                background-color: aqua;
+            }
+            .child {
+                position: absolute;
+                right: 10px;
+                bottom: 10px;
+                background-color: palevioletred;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="parent">
+            <div class="child">여기!</div>
+        </div>
+    </body>
+</html>
+
+<!-- 부모에게 position: relative;가 없으면 child 클래스는 부모보다 더 높은 html을 기준으로 움직인다 -->
