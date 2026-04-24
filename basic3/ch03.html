@@ -45,6 +45,11 @@
     };
     console.log(datas["name"[0]]);
     datas.a();
+
+    const datas2 = datas; // 얕은 복사
+    console.log(datas === datas2)
+    const datas3 = {...datas};
+    console.log(datas === datas2); // 깊은 복사
    </script> 
 </body>
 </html>
