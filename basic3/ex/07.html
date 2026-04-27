@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(0 || "기본값");       // 결과: 기본값
+        console.log("" || "대체값");      // 결과: 대체값
+        console.log("사용자" && "환영합니다"); // 결과: 환영합니다
+        console.log(null && "출력됨");    // 결과: null
+        console.log(typeof[]); // 결과 object
+    </script>
+</body>
+</html>
+
+// 숫자의 없다는 0
+// 문자의 없다는 " " 즉, 공백이다
+// 논리의 없다는 flase
+// 클래스(=객체)의 없다는 null(참조할 객체/주소가 없다) 즉, 참조할 객체(참조변수)/주소가 없다 => 타입은 object
+    //클래스의 있다는 {}
+// 배열의 없다는 null, 있다는 [] => 타입은 object

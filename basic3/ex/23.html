@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     function a() {
+        let num = 0;
+        return function () {
+            num++;
+            return num;
+        }
+    }   
+    const b = a();
+    const c = a();
+    console.log(b());
+    console.log(b());
+    console.log(b());
+    // 메모리 주소, 함수의 객체가 달라서 다르게 작용한다.
+    console.log(c());
+    console.log(c());
+    console.log(c());
+
+    const d = () => {
+        let n = 10;
+        let n2 = 20;
+        return n + n2;
+    }
+    const e = () => {
+        let n = 10;
+        let n2 = 20;
+        return n + n2;
+    }
+    </script>
+</body>
+</html>
+<!-- 클로저 함수: 함수가 외부에서 호출되어도 그 환경에 접근할 수 있는 기능
+  클로저는 호출된 메모리 스택을 유지시키는거다 -> 전역에 쓰임(한번만 쓰임). 싱글톤 같음 
+    즉 함수가 무분별하게 만들어지는 것을 방지할 수 있다.-->

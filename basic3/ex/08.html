@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let username = null;
+        console.log(username ?? "Guest");
+        username = "준일"
+        console.log(username ?? "나비");
+    </script>
+</body>
+</html>
+
+// ??은 무조건 null에 사용 => null 병합이라 부름

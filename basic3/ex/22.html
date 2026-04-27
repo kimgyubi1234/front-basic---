@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function a() {
+
+        }
+
+        const b = a;
+        a();
+        b();
+        function c (d) {
+            d();
+        }
+        c(a);
+
+        function calc(run, ...num) {
+            return run(num);
+        }
+        function addition(num) {
+            return num === 0 ? 0 : num + addition(num - 1);
+        }
+
+        function factorial(num) {
+            return num === 0 || num === 1 ? 1 : num * factorial(num - 1);
+        }
+        const result1 = calc(addition, 10);
+        const result2 = calc(factorial, 10);
+        console.log(result1, result2);
+
+   //아래는 추가예시
+        function myMap(nums, fx) {
+            const newArray = [];
+            for (let i = 0; i < nums.length; i++) {
+                newArray.push(fx(nums[i]));
+            }
+            nums.forEach(n => newArray.push(fx(n)));
+            for (let n of nums) {
+                newArray.push(fx(n));
+            }
+            return newArray;
+        }
+        function myMap2(nums, fx) {
+            return nums.map(n => fx(n));
+        }
+
+        const arr = [1, 2, 3, 4, 5, 6, 7, 8];
+        const result = arr.splice(2, 0, 10); // 인덱스 2번에 아무것도 안 지우고(0) 10을 넣겠다
+        console.log(arr);
+        console.log(result);
+
+        console.log(myMap([1, 2, 3, 4], (x) => x * 2)); 
+        console.log(myMap([1, 2, 3, 4], (x) => x ** 2));
+    </script>
+</body>
+</html>
+
+<!-- 콜백은 뒤늦게 호출하는 것. 함수자체를 매개변수로 -->

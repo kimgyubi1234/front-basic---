@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sayHello(name) {
+            console.log(`출력: 안녕하세요, ${name}님`);
+        }
+        function sayHello2(name, greeting = "반갑습니다") {
+            console.log(`출력: ${greeting}, ${name}님`);
+        }
+
+        sayHello("준일");           // 출력: 안녕하세요, 준일님!
+        sayHello2("준일", "반갑습니다"); // 출력: 반갑습니다, 준일님!
+    </script>
+</body>
+</html>
