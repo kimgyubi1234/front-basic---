@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>이름</th>
+            </tr>
+        </thead>
+        <tbody class="name-table-body">
+
+        </tbody>
+    </table>
+
+    <script>
+        // map(mapping) -> 일체하는 것을 1 : 1로 짝짓는다. => 목적
+        // map을 쓴다는것은 무조건 배열 List를 사용한다. 
+        // [ 10, 20, 30 ] --> [100, 200, 300]
+        // ["준일", "준이", "준삼"] --> ["김준일", "김준이", "김준삼"]
+        // [(name: "준일"), (name: "준이"), (name: "준삼"),] --> ["준일", "준이", "준삼"]
+        // 자료형이 달라질 수 있고 값이 달라질 수 있어도 1 : 1은 유지된다.
+
+        const arrayObject = {
+            arr: [], // arr는 const names = ["준일", "준이", "준삼"];
+            map: (mapFx) => { //콜백, mapFx는 mapfunction을 의미
+                console.log("1: " + mapFx);
+                const newArray = [];
+                console.log("2: " + arrayObject.arr);
+                for (let i = 0; i < arrayObject.arr.length; i++) { // 자기사신 객체 안에 들어있는 arr갯수만큼 반복시키겠다
+                    console.log("3: " + mapFx(arrayObject.arr[i]));
+                    newArray.push(mapFx(arrayObject.arr[i])); // 여기서 mapFx는 arrayObject.map(name => "김" + name)
+                }
+                console.log("4: " + newArray);
+                return newArray;
+            },
+            filter: (predicate) => {
+                const newArray = [];
+                for (let i = 0; i < arrayObject.arr.length; i++) {
+                    if (predicate(arrayObject.arr[i])) {
+                        newArray.push(arrayObject.arr[i]);
+                    }
+                }
+                return newArray;
+            }
+        }
+        const names = ["준일", "준이", "준삼"];
+        console.log(names);
+        arrayObject.arr = names;
+        console.log(arrayObject.map(name => "김" + name));
+        console.log(arrayObject.filter(name => !name.includes("이")));
+
+        function map() {
+
+        }
+
+        const box1 = {
+            miniBox: {
+                content: "미니박스1",
+                
+            }
+        }
+
+        const box2 = {
+            miniBox: {
+                content: "미니박스2",
+
+            }
+        }
+
+        const box3 = {
+            miniBox: {
+                content: "미니박스3",
+
+            }
+        }
+
+        const boxList = [ box1, box2, box3, ];
+        const miniBoxList = [ box1.miniBox, box2.miniBox, box3.miniBox,];
+        const miniBoxList2 = [];
+        for (let box of boxList) {
+            miniBoxList2.push(box.miniBox);
+        }
+        const miniBoxList3 = boxList.map(box => box.miniBox); //box => box.miniBox.content이 함수의 호출 결과들로 새로운 배열을 만들어냄
+        const contents = boxList.map(box => box.miniBox.content); 
+
+        console.log(boxList);
+
+        const name= "김준일";
+        const message = `${name}님 환영합니다.`;
+        console.log(message);
+
+
+        const nameList = ["김준일", "김준이", "김준삼"];
+        console.log(nameList.map(name => `<tr><td>${name}</tr></td>`));
+
+        const tableBody = document.querySelector(".name-table-body");
+        console.log({tableBody});
+        tableBody.innerHTML = nameList.map(name => `<tr><td>${name}</tr></td>`).join(" ");
+    </script>
+</body>
+</html>
+<!-- join: 문자열. (" ")을 중간중간에 넣어 합치게 함
+innerHTML: 특정 요소(Element) 안에 있는 HTML 코드 전체를 가져오거나, 새로운 HTML 코드로 대체할 때 사용  // HML 태그를 넣을 수 있음
+-->
