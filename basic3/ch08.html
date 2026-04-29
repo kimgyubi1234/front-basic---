@@ -98,7 +98,7 @@
         }
 
 
-        .option-itmes-top {
+        .option-items-top {
             display: flex;
             justify-content: space-between;
             gap: 30px;
@@ -120,7 +120,7 @@
             justify-content: center;
             align-items: center;
             box-sizing: border-box;
-            border: 1px solid #dbddbb;
+            border: 1px solid #dbdbdb;
             border-radius: 4px;
             padding: 8px 15px;
             background-color: #555555;
@@ -171,20 +171,20 @@
 
             & th, & td {
                 box-sizing: border-box;
-                border: 1ps solid #dbdbdb;
+                border: 1px solid #dbdbdb;
                 padding: 5px 10px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+<div class="container">
         <div class="card">
             <div class="input-box">
                 <input type="text" id="un" name="username">
-                <label for="un">사용자이름</label>
-            </div>  
-            <div class="input-box"> 
+                <label for="un">사용자 이름</label>
+            </div>
+            <div class="input-box">
                 <input type="password" id="pw" name="password">
                 <label for="pw">비밀번호</label>
             </div>
@@ -194,9 +194,9 @@
             <div class="card">
                 <div class="option-items-top">
                     <div class="df-row">
-                        <input type="text">
+                        <input type="text" class="search-input">
                         <button class="btn">검색</button>
-                    </div >
+                    </div>
                     <div class="df-row">
                         <button class="btn edit">수정</button>
                         <button class="btn delete">삭제</button>
@@ -215,9 +215,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-
-                        </tr>
+    
                     </tbody>
                 </table>
             </div>
@@ -242,14 +240,19 @@
         const inputBoxs = document.querySelectorAll(".input-box");
 
         for (let inputBox of inputBoxs) {
-            const inputElemnet = inputBox.querySelector("input");
+            const inputElement = inputBox.querySelector("input");
 
-            inputElemnet.onfocus = (event) => {
+            inputElement.onfocus = (event) => {
                 inputBox.classList.add("input-is-not-empty");
             }
-            inputElemnet.onblur = (event) => {
-                if (!event.target.value)
-                inputBox.classList.remove("input-is-not-empty");
+
+            inputElement.onblur = (event) => {
+                if (!event.target.value.trim().length) {
+                    inputElement.value = "";
+                }
+                if (!event.target.value) {
+                    inputBox.classList.remove("input-is-not-empty");
+                }
             }
         }
 
@@ -283,7 +286,7 @@
             const tbody = document.querySelector(".user-table > tbody");
             tbody.innerHTML = userList.map(user => `
             <tr>
-                <th></th>
+                <th><input type="checkbox"></th>
                 <td>${user.id}</td>
                 <td>${user.username}</td>
                 <td>${user.password}</td>

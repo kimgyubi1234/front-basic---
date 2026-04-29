@@ -38,9 +38,9 @@
             const tbody = document.querySelector("tbody");
             tbody.innerHTML = tableRowData.map(s => `
                 <tr>
-                    <td><input type="checkbox" id="${s.id}" ${s.checked ? "checked" : " "} onchange="handleCheckOnChange(event)"></td>    
-                    <td>${s.id}</td>    
-                    <td>${s.name}</td>    
+                    <th><input type="checkbox" id="${s.id}" ${s.checked ? "checked" : ""} onchange="handleCheckOnChange(event)"></th>    
+                    <th>${s.id}</th>
+                    <th>${s.name}</th>    
                 </tr>`).join("");
         }
 
@@ -65,18 +65,13 @@
                         checked: e.target.checked,
                     }
                 }
-                return s
-            })
+                return s;
+            });
 
             const checkedRow = tableRowData.filter(s => s.checked);
-            if (checkedRow.length === 0) { //전체 체크 해제
-                const allCheckedBox = document.querySelector("#all");
-                allCheckedBox.checked = false;
-            }
-            if (checkedRow.length === tableRowData.length) { // 전체 체크 적용
-                const allCheckedBox = document.querySelector("#all");
-                allCheckedBox.checked = true;
-            }
+            const allCheckBox = document.querySelector("#all");
+            allCheckBox.checked = checkedRow.length === tableRowData.length;
+            render();
         }
     </script>
 </body>
