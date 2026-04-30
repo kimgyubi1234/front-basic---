@@ -12,16 +12,19 @@
     <table>
         <thead>
             <tr>
-                <th><input type="checkbox" id="all" onchange="handleCheckOnChange(event)"></th>
+                <th><input type="checkbox" id="all" onchange="handleCheckOnChange(event)"></th> // onchange 변화 되다
                 <th>번호</th>
                 <th>이름</th>
             </tr>
         </thead>
+        <tbody>
+
+        </tbody>
     </table>
 
     <script>
-        let tableRender= [];
-        function requestStudentData() {
+        let tableRender= []; 
+        function requestStudentData() {  
             let studentList = [
                 {id: 1, naem: "김준일"},
                 {id: 2, naem: "김준이"},
@@ -29,14 +32,14 @@
                 {id: 4, naem: "김준사"},
             ];
             tableRowData = studentList.map(s => ({
-                ...s,
+                ...s,   
                 checked: false, // 원래 위 (let studentList = [...];)모양인데 checked까지 추가 되었다
             }));
         }
 
-        function render() {
-            const tbody = document.querySelector("tbody");
-            tbody.innerHTML = tableRowData.map(s => `
+        function render() { 
+            const tbody = document.querySelector("tbody"); 
+            tbody.innerHTML = tableRowData.map(s => ` 
                 <tr>
                     <th><input type="checkbox" id="${s.id}" ${s.checked ? "checked" : ""} onchange="handleCheckOnChange(event)"></th>    
                     <th>${s.id}</th>
@@ -44,7 +47,7 @@
                 </tr>`).join("");
         }
 
-        requestStudentData(); //호출
+        requestStudentData(); //호출  // 여기서 먼저 호출되니 먼저 읽는다
         render(); //호출
 
         function handleCheckOnChange(e) {
